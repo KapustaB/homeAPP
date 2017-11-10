@@ -1,0 +1,20 @@
+<%= simple_form_for(@house) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :address %>
+  </div>
+
+    <div id="floors">
+      <%= f.simple_fields_for :floors do |floor| %>
+          <%= render 'floor_fields', f: floor %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association 'add floor', f, :floors %>
+      </div>
+    </div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

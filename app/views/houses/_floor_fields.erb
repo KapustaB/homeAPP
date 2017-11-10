@@ -1,0 +1,19 @@
+<div class="nested-fields">
+<h3>New floor</h3>
+<hr>
+<%= f.input :name %>
+<%= f.input :level %>
+<hr>
+
+  <div id="room">
+    <%= f.simple_fields_for :rooms do |room| %>
+        <%= render 'room_fields', f: room %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add room', f, :rooms %>
+    </div>
+  </div>
+
+  <%= link_to_remove_association "Remove floor", f, class: "btn btn-danger" %>
+</div>
+

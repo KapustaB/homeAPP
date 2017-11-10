@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Users Controllers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users_controllers.each do |users_controller| %>
+      <tr>
+        <td><%= link_to 'Show', users_controller %></td>
+        <td><%= link_to 'Edit', edit_users_controller_path(users_controller) %></td>
+        <td><%= link_to 'Destroy', users_controller, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Users Controller', new_users_controller_path %>
