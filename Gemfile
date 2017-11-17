@@ -23,6 +23,8 @@ gem 'bootstrap-sass', '~> 3.3.7'
 
 gem 'font-awesome-rails'
 
+gem 'devise_invitable', '~> 1.7.0'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
