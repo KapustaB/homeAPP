@@ -1,19 +1,37 @@
+<style>
+  .new-room-fileds{
+    margin-bottom: 5%;
+  }
+</style>
+
 <div class="nested-fields">
+  <div class="col-md-12">
+  <div class="container-fluid">
+
+      <div class="well floors">
 <h3>New floor</h3>
 <hr>
-<%= f.input :name %>
-<%= f.input :level %>
+        <div class="row">
+          <div class="col-md-6 new-house-fields">
+            <%= f.input :name %></div>
+          <div class="col-md-6 new-house-fields">
+            <%= f.input :level %></div>
 <hr>
 
   <div id="room">
+    <div class="row new-room-fileds" style="margin-left: 1.8%;margin-right: 1.8%">
     <%= f.simple_fields_for :rooms do |room| %>
         <%= render 'room_fields', f: room %>
     <% end %>
     <div class="links">
-      <%= link_to_add_association 'add room', f, :rooms %>
+      <%= link_to_add_association 'add room', f, :rooms, class:"btn btn-primary" %>
+    </div>
     </div>
   </div>
 
-  <%= link_to_remove_association "Remove floor", f, class: "btn btn-danger" %>
-</div>
 
+  <%= link_to_remove_association "Remove floor", f, class: "btn btn-danger" %>
+  </div>
+</div>
+</div>
+</div></div>

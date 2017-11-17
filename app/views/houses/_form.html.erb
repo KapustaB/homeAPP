@@ -1,20 +1,34 @@
-<%= simple_form_for(@house) do |f| %>
+<style>
+  .new-house-fields{
+    padding-right: 3%;
+    padding-left: 3%;
+  }
+</style>
+
+<%= simple_form_for(@house, html: { class: 'form-horizontal'}) do |f|  %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :address %>
+    <div class="row">
+      <div class="col-md-6 new-house-fields">
+        <%= f.input :name %> </div>
+      <div class="col-md-6 new-house-fields">
+        <%= f.input :address %></div>
+    </div>
   </div>
 
     <div id="floors">
+      <div class="row">
       <%= f.simple_fields_for :floors do |floor| %>
           <%= render 'floor_fields', f: floor %>
       <% end %>
+      </div>
       <div class="links">
-        <%= link_to_add_association 'add floor', f, :floors %>
+        <%= link_to_add_association 'add floor', f, :floors, class: "btn btn-primary"%>
       </div>
     </div>
+
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class:"btn btn-warning" %>
   </div>
 <% end %>

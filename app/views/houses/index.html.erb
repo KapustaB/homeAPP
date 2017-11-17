@@ -11,6 +11,9 @@
 
   <tbody>
     <% @houses.each do |house| %>
+          <%= house.name %>
+          <%= house.address %>
+
       <tr>
         <td><%= link_to 'Show', house %></td>
         <td><%= link_to 'Edit', edit_house_path(house) %></td>
