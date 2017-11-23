@@ -4,7 +4,7 @@ class HousesController < ApplicationController
   # GET /houses
   # GET /houses.json
   def index
-    @houses = House.all
+    @houses = current_user.houses if user_signed_in?
   end
 
   # GET /houses/1

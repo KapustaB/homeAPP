@@ -54,6 +54,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'better_errors', '~> 2.4.0'
   gem 'binding_of_caller'
+  gem 'pry-rails'
 end
 
 group :development do
