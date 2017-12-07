@@ -31,3 +31,9 @@
 
 en:
   hello: "Hello world"
+  controllers:
+    api:
+      v1:
+        authorized:
+          auth_error: "Auth error"
+
