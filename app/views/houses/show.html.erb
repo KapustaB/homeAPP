@@ -1,5 +1,60 @@
+
 <p id="notice"><%= notice %></p>
 <%= link_to 'Invite', new_user_invitation_path(house_id: @house.id), class:"btn btn-primary" %>
 
+
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+<% @house.floors.each do |f| %>
+      <li class="nav-item">
+        <a class="nav-link" id="<% f.id %>" data-toggle="tab" href="#tab_<%= f.id %>" role="tab" aria-controls="<%f.name%>" ><%= f.name %> <%= f.level %></a>
+      </li>
+<% end %>
+</ul>
+
+
+<div class="tab-content">
+  <% @house.floors.each do |floor| %>
+      <div class="tab-pane fade none-disp" id="tab_<%= floor.id %>">
+
+          <ul class="nav nav-tabs" id="tab2_<%= floor.id %>" role="tablist">
+          <% floor.rooms.each do |room|%>
+                <li class="nav-item">
+                  <a class="nav-link" id="room<% room.id %>" data-toggle="tab" href="#tab22_<%= room.id %>" role="tab" aria-controls="<% room.name%>"> <%= room.name %>  </a>
+                </li>
+            <% end %>
+          </ul>
+                <div class="tab-content">
+
+                  <% floor.rooms.each do |room| %>
+                      <div class="tab-pane fade in" id="tab22_<%= room.id %>">
+
+                        <%= simple_form_for(room, url: device_path, method: :put) do |f|  %>
+
+                            <div id="device">
+                              <div class="row new-room-fileds" style="margin-left: 1.8%;margin-right: 1.8%">
+                                <%= f.simple_fields_for :devices do |device| %>
+                                    <%= render 'device_fields', f: device %>
+                                <% end %>
+                                <div class="links">
+                                  <%= link_to_add_association 'add device', f, :devices, class:"btn btn-primary" %>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-actions">
+                              <%= f.button :submit, class:"btn btn-warning" %>
+                            </div>
+                            <% end %>
+
+                      </div>
+                  <% end %>
+                </div>
+
+      </div>
+  <% end %>
+</div>
+
+
 <%= link_to 'Edit', edit_house_path(@house) %> |
 <%= link_to 'Back', houses_path %>
+

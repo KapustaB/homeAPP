@@ -1,0 +1,18 @@
+<style>
+  .new-house-fields{
+    padding-right: 3%;
+    padding-left: 3%;
+  }
+</style>
+<div class="nested-fields">
+
+    <div class="form-inputs">
+      <div class="row">
+        <div class="col-md-6 new-house-fields">
+          <%= f.input :name %>
+        </div>
+      </div>
+    </div>
+
+<%= link_to_remove_association "Remove device", f, class: "btn btn-danger" %>
+</div>

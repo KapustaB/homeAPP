@@ -6,7 +6,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <body>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -26,12 +26,12 @@
         <ul class="nav navbar-nav">
           <li class="active"> <%= link_to root_path do %> Home<span class="sr-only">(current)</span><%end%></li>
           <% if user_signed_in? %>
-          <li> <%= link_to 'New house', new_house_path %> </li> <%end%>
+              <li> <%= link_to 'New house', new_house_path %> </li> <%end%>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
           <%unless user_signed_in?%>
-            <li><%= link_to 'Login', user_session_path %></li>
+              <li><%= link_to 'Login', user_session_path %></li>
           <% end %>
 
           <li class="dropdown">
@@ -45,7 +45,6 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-  <body>
     <%= yield %>
   </body>
 </html>

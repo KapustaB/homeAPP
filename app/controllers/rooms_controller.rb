@@ -69,6 +69,13 @@ class RoomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
-      params.fetch(:room, {})
+      params.fetch(:room, {}, :devices_attributes => devices__attributes)
     end
+
+    def devices__attributes
+    [
+        :id, :name, :light
+    ]
+    end
+
 end
