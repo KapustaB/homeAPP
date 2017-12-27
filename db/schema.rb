@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207112659) do
+ActiveRecord::Schema.define(version: 20171213191913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "device_value_changed_ats", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "device_id"
+    t.integer "value"
+  end
 
   create_table "devices", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -88,6 +95,7 @@ ActiveRecord::Schema.define(version: 20171207112659) do
 
   create_table "value_types", force: :cascade do |t|
     t.string "name"
+    t.integer "device_id"
   end
 
   create_table "weather_conditions", force: :cascade do |t|

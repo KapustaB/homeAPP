@@ -24,7 +24,6 @@ class DevicesController < ApplicationController
   # POST /devices
   # POST /devices.json
   def create
-
     respond_to do |format|
       if @device.save
         format.html { redirect_to @device, notice: 'Device was successfully created.' }

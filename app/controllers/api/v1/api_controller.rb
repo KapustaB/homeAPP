@@ -1,7 +1,12 @@
-class Api::V1::ApiController < ApplicationController
+module Api
+  module V1
+    class ApiController < ApplicationController
+      protect_from_forgery with: :null_session
+      #skip_before_action :verify_authenticity_token, :authenticate_user! #Set this if user is being authorized in ApplicationController - DEVISE
+      include Response
+      include ExceptionHandler
 
-  skip_before_action :verify_authenticity_token, :authenticate_user!
-
-
-
+    end
+  end
 end
+

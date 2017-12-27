@@ -1,0 +1,31 @@
+
+<div class="container" style="width: 60em">
+  <% @devices.each do |device| %>
+<%= line_chart device.device_value_changed_ats.group_by_day(:created_at).average(:value), title: 'Temperature in house', library: {
+        yAxis: {
+            labels: {
+                title: 'Temperature',
+                format: '${value}'
+            }
+        },
+        tooltip: {
+            pointFormat: 'Temperature: <b>{point.y}</b>'
+        }
+    } %>
+<% end %>
+
+      </div>
+
+<%= week_calendar   do |date, appointments| %>
+    <span class="date-str"><%= date.day %></span>
+    <div class="row">
+
+      <% (1..24).each do |h|%>
+
+          <label><%= h%></label>
+      <% end %>
+    </div>
+
+<% end %>
+
+

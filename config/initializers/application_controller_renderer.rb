@@ -6,3 +6,4 @@
 #     https: false
 #   )
 # end
+ActiveModelSerializers.config.adapter = :json
